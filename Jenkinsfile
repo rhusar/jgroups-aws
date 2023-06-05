@@ -2,6 +2,10 @@
 
 pipeline {
     agent any
+//     tools {
+//         maven 'Maven 3.3.9'
+//         jdk 'jdk11'
+//     }
     stages {
         stage('SCM Checkout') {
             steps {
@@ -12,8 +16,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def mvnHome = tool 'Maven'
-                    sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=true"
+                    //def mvnHome = tool 'Maven'
+                    //sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=true"
+                    sh "mvn clean install -Dmaven.test.failure.ignore=true"
                     junit allowEmptyResults: true, testResults: '**/target/*-reports/*.xml'
                 }
             }

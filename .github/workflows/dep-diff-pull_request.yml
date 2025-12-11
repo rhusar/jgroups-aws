@@ -8,9 +8,9 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "**/pom.xml"
-env:
+#    paths:
+#      - "**/pom.xml"
+#env:
   # The modules to check for dependencies. If there is more than one they are comma separated
   #MODULES_TO_CHECK:
   #ADDITIONAL_BUILD_MODULES:

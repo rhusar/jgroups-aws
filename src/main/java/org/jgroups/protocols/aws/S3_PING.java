@@ -156,6 +156,12 @@ public class S3_PING extends FILE_PING {
     }
 
     @Override
+    public void destroy() {
+        super.destroy();
+        Util.close(s3Client);
+    }
+
+    @Override
     protected void createRootDir() {
         // ignore, bucket has to exist
     }

@@ -204,8 +204,8 @@ public class S3_PING extends FILE_PING {
 
                     final List<PingData> data = this.read(objectAsBytes.asInputStream());
                     if (data == null) {
-                        log.debug("Fetched update for cluster '%s' member list in AWS S3 is empty.", clusterPrefix);
-                        break;
+                        log.warn("Failed reading key '%s'.", s3Object.key());
+                        continue;
                     }
                     for (final PingData pingData : data) {
                         if (members == null || members.contains(pingData.getAddress())) {
